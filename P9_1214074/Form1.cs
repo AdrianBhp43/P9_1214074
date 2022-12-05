@@ -19,6 +19,15 @@ namespace P9_1214074
             //Query DB
             DataMahasiswa.DataSource = koneksi.ShowData("SELECT * FROM t_mahasiswa ");
 
+
+            //Mengubah Nama Kolom Tabel
+            DataMahasiswa.Columns[0].HeaderText = "NPM";
+            DataMahasiswa.Columns[0].HeaderText = "Nama";
+            DataMahasiswa.Columns[0].HeaderText = "Angkatan";
+            DataMahasiswa.Columns[0].HeaderText = "Alamat";
+            DataMahasiswa.Columns[0].HeaderText = "Email";
+            DataMahasiswa.Columns[0].HeaderText = "No HP";
+
         }
 
         public Form1()
@@ -31,17 +40,6 @@ namespace P9_1214074
         private void Form1_Load(object sender, EventArgs e)
         {
             Tampil();
-
-            //QueryDB
-            DataMahasiswa.DataSource = koneksi.ShowData("SELECT * FROM t_mahasiswa");
-
-            //Mengubah Nama Kolom Tabel
-            DataMahasiswa.Columns[0].HeaderText = "NPM";
-            DataMahasiswa.Columns[0].HeaderText = "Nama";
-            DataMahasiswa.Columns[0].HeaderText = "Angkatan";
-            DataMahasiswa.Columns[0].HeaderText = "Alamat";
-            DataMahasiswa.Columns[0].HeaderText = "Email";
-            DataMahasiswa.Columns[0].HeaderText = "No HP";
 
         }
     }
