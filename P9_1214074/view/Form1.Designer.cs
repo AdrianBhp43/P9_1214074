@@ -31,7 +31,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DataMahasiswa = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.angaktan = new System.Windows.Forms.ComboBox();
+            this.angkatan = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.nohp = new System.Windows.Forms.TextBox();
             this.email = new System.Windows.Forms.TextBox();
@@ -48,10 +48,14 @@
             this.btnUbah = new System.Windows.Forms.Button();
             this.btnSimpan = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbCariData = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataMahasiswa)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -72,10 +76,11 @@
             this.DataMahasiswa.Name = "DataMahasiswa";
             this.DataMahasiswa.Size = new System.Drawing.Size(776, 183);
             this.DataMahasiswa.TabIndex = 0;
+            this.DataMahasiswa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataMahasiswa_CellClick);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.angaktan);
+            this.groupBox2.Controls.Add(this.angkatan);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.nohp);
             this.groupBox2.Controls.Add(this.email);
@@ -94,13 +99,19 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Form Data Mahasiswa";
             // 
-            // angaktan
+            // angkatan
             // 
-            this.angaktan.FormattingEnabled = true;
-            this.angaktan.Location = new System.Drawing.Point(112, 101);
-            this.angaktan.Name = "angaktan";
-            this.angaktan.Size = new System.Drawing.Size(314, 21);
-            this.angaktan.TabIndex = 12;
+            this.angkatan.FormattingEnabled = true;
+            this.angkatan.Items.AddRange(new object[] {
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022"});
+            this.angkatan.Location = new System.Drawing.Point(112, 101);
+            this.angkatan.Name = "angkatan";
+            this.angkatan.Size = new System.Drawing.Size(314, 21);
+            this.angkatan.TabIndex = 12;
             // 
             // label6
             // 
@@ -213,6 +224,7 @@
             this.btnHapus.TabIndex = 3;
             this.btnHapus.Text = "Hapus";
             this.btnHapus.UseVisualStyleBackColor = true;
+            this.btnHapus.Click += new System.EventHandler(this.btnHapus_Click);
             // 
             // btnUbah
             // 
@@ -222,6 +234,7 @@
             this.btnUbah.TabIndex = 2;
             this.btnUbah.Text = "Ubah";
             this.btnUbah.UseVisualStyleBackColor = true;
+            this.btnUbah.Click += new System.EventHandler(this.btnUbah_Click);
             // 
             // btnSimpan
             // 
@@ -231,6 +244,7 @@
             this.btnSimpan.TabIndex = 1;
             this.btnSimpan.Text = "Simpan";
             this.btnSimpan.UseVisualStyleBackColor = true;
+            this.btnSimpan.Click += new System.EventHandler(this.btnSimpan_Click);
             // 
             // btnRefresh
             // 
@@ -240,12 +254,42 @@
             this.btnRefresh.TabIndex = 0;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.tbCariData);
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Location = new System.Drawing.Point(477, 230);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(311, 70);
+            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Form Pencarian";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(11, 29);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(51, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Cari Data";
+            // 
+            // tbCariData
+            // 
+            this.tbCariData.Location = new System.Drawing.Point(63, 27);
+            this.tbCariData.Name = "tbCariData";
+            this.tbCariData.Size = new System.Drawing.Size(227, 20);
+            this.tbCariData.TabIndex = 1;
+            this.tbCariData.TextChanged += new System.EventHandler(this.tbCariData_TextChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 561);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -257,6 +301,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -278,11 +324,14 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox nohp;
         private System.Windows.Forms.DataGridView DataMahasiswa;
-        private System.Windows.Forms.ComboBox angaktan;
+        private System.Windows.Forms.ComboBox angkatan;
         private System.Windows.Forms.Button btnHapus;
         private System.Windows.Forms.Button btnUbah;
         private System.Windows.Forms.Button btnSimpan;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox tbCariData;
+        private System.Windows.Forms.Label label7;
     }
 }
 
