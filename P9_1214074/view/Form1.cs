@@ -123,8 +123,7 @@ namespace P9_1214074
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            Tampil();
-
+        
             npm.Text = "";
             nama.Text = "";
             angkatan.SelectedIndex = -1;
@@ -132,7 +131,7 @@ namespace P9_1214074
             email.Text = "";
             nohp.Text = "";
 
-            
+            Tampil();
         }
 
         private void btnHapus_Click(object sender, EventArgs e)
